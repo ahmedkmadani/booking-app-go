@@ -16,7 +16,10 @@ func main() {
 
 	// var bookings = [50]string{}
 
-	var bookings [50]string
+	//slice is same as array but more dynamic
+
+	// var bookings [50]string
+	var bookings []string
 
 	var firstName string
 	var lastName string
@@ -38,7 +41,18 @@ func main() {
 	fmt.Scan(&userTicket)
 
 	remainingTickets = remainingTickets - userTicket
-	bookings[0] = firstName + " " + lastName
+	// bookings[0] = firstName + " " + lastName
+	bookings = append(bookings, firstName+" "+lastName)
+
+	// fmt.Printf("The whole array: %v \n", bookings)
+	// fmt.Printf("The first value: %v \n", bookings[0])
+	// fmt.Printf("Array type: %T \n", bookings)
+	// fmt.Printf("Array length: %v \n", len(bookings))
+
+	fmt.Printf("The whole slice: %v \n", bookings)
+	fmt.Printf("The first value: %v \n", bookings[0])
+	fmt.Printf("slice type: %T \n", bookings)
+	fmt.Printf("slice length: %v \n", len(bookings))
 
 	fmt.Printf("Thanks you %v %v for booking %v tickets. You will recvice confrimation email at %v \n", firstName, lastName, userTicket, email)
 	fmt.Printf("%v tickets remaining for %v", remainingTickets, conferenceName)
