@@ -12,16 +12,11 @@ func main() {
 	var remainingTickets int = 50
 	bookings := []string{}
 
+	greetUser(conferenceName, conferenceTickets, remainingTickets)
+
 	// fmt.Printf("conferenceName is %T, conferenceTickets is %T, remainingTickets is %T \n", conferenceName, conferenceTickets, remainingTickets)
-
-	fmt.Printf("Welcome to %v booking application \n", conferenceName)
-	fmt.Printf("We have total of %v tickets and %v are still availabe \n", conferenceTickets, remainingTickets)
-	fmt.Println("Get your ticket here to attend")
-
 	// var bookings = [50]string{}
-
 	//slice is same as array but more dynamic
-
 	// var bookings [50]string
 	// var bookings []string
 
@@ -74,9 +69,35 @@ func main() {
 				break
 			}
 		} else {
-			fmt.Println("Your input data is invalid try again")
-			continue
+			if !isValidName {
+				fmt.Println("first name or last name you entered is too short")
+			}
+			if !isValidEmail {
+				fmt.Println("email address you entered does'nt contain @ sign")
+			}
+			if !isValidTicketNumber {
+				fmt.Println("number of tickets you entered is invalid")
+			}
+			// fmt.Println("Your input data is invalid try again")
+			// continue
+		}
+
+		city := "London"
+
+		switch city {
+		case "New work":
+			//do new work code logic
+		case "London", "Berlin":
+			// do london and berlin coed logic
+		default:
+			// code block in case no of cases match
 		}
 	}
 
+}
+
+func greetUser(conferenceName string, conferenceTickets int, remainingTickets int) {
+	fmt.Printf("Welcome to %v booking application \n", conferenceName)
+	fmt.Printf("We have total of %v tickets and %v are still availabe \n", conferenceTickets, remainingTickets)
+	fmt.Println("Get your ticket here to attend")
 }
